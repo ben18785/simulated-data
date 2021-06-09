@@ -11,6 +11,7 @@
     * If you can't fit your model to simulated data, then perhaps you need to reduce its complexity
   * Helps to select priors without resorting to using actual data to select them
 * Useful for benchmarking novel methods
+* Cover somewhere what p values are and what statistical size and power mean
 
  # Reproducible and useful research
 
