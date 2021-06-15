@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  15 JUN 2021 01:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  15 JUN 2021 09:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2010,7 +2010,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 372.
 Here is how much of TeX's memory you used:
  35615 strings out of 493014
  690050 string characters out of 6133352
- 1097409 words of memory out of 5000000
+ 1097410 words of memory out of 5000000
  38431 multiletter control sequences out of 15000+600000
  20364 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2034,7 +2034,7 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on benefits_of_data_simulation.pdf (24 pages, 982706 bytes).
+Output written on benefits_of_data_simulation.pdf (24 pages, 956532 bytes).
 PDF statistics:
  312 PDF objects out of 1000 (max. 8388607)
  236 compressed objects within 3 object streams
