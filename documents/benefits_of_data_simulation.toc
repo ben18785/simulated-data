@@ -1,0 +1,9 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\beamer@endinputifotherversion {3.36pt}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {1}{How to create useful methods}{5}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{Two key problems with statistical significance testing}{14}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {3}{The use of simulated data in inference}{17}{0}{3}
