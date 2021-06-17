@@ -75,19 +75,224 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Lecture content</h1>
 <ul>
 <li>How to write unsmelly code</li>
-<li>When to test and when not to test in research</li>
-<li>How to structure your project for reproducibility</li>
+<li>How to programme defensively for research</li>
+<li>How to structure your project for reproducible research</li>
 </ul>
+</section>
+<section id="what-this-lecture-is-not" class="slide level1">
+<h1>What this lecture is not</h1>
+<p>It's not about writing good software; it's some tips to help your research be more reproducible.</p>
+<p>(Although there is some overlap.)</p>
 </section>
 <section id="code-smells" class="slide level1">
 <h1>Code smells</h1>
 </section>
-<section id="how-to-programme-defensively" class="slide level1">
-<h1>How to programme defensively</h1>
+<section id="empathy-and-writing" class="slide level1">
+<h1>Empathy and writing</h1>
+<ul>
+<li>Steven Pinker argues that empathy is key to good academic writing</li>
+<li>Even if writing solo, you can reduce the empathy gap with readers</li>
+<li>You can ask a future you if they understand what you mean</li>
+<li>(Better) you can ask others if they understand</li>
+</ul>
+</section>
+<section id="empathy-and-coding" class="slide level1">
+<h1>Empathy and coding</h1>
+<ul>
+<li>For others to be able to reproduce or replicate what you've done, they have to understand it</li>
+<li>Writing understandable code also makes it less likely to be buggy</li>
+<li>Empathy with future users is hence key to writing good code</li>
+</ul>
+</section>
+<section id="empathy-and-coding-1" class="slide level1">
+<h1>Empathy and coding</h1>
+<p>Reduce the empathy gap by:</p>
+<ul>
+<li>Refactoring relentlessly as future you re-encounters code</li>
+<li>Code collaboratively</li>
+<li>Being aware of good and bad coding practices</li>
+</ul>
+</section>
+<section id="good-and-bad-code" class="slide level1">
+<h1>Good and bad code</h1>
+<p>There are many ways to write good software.</p>
+<p>There are fewer ways to write bad software.</p>
+<p><em>Code smells</em> are recognised patterns of code likely to hinder understanding and make it hard to work with.</p>
+<p>Code smells are actually named (Fowler, 2000).</p>
+</section>
+<section id="which-is-not-a-real-code-smell" class="slide level1">
+<h1>Which is not a real code smell?</h1>
+<ul>
+<li>Long Parameter List</li>
+<li>Duplicated Code</li>
+<li>Global Data</li>
+<li>Large Class</li>
+<li>Feature Envy</li>
+<li>Inappropriate Intimacy</li>
+<li>Angry Lovers</li>
+<li>Freeloader</li>
+</ul>
+</section>
+<section id="why-learn-how-to-smell" class="slide level1">
+<h1>Why learn how to smell?</h1>
+<p>Code smells have well-defined remedies.</p>
+<p>Learning to classify code as whiffing of a particular odour means you can apply these.</p>
+</section>
+<section id="what-is-this-function-about" class="slide level1">
+<h1>What is this function about ?</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="cf">function</span>(start, stop, stoc, spec, dens,
+                  b, i_mat, i_dur, ntype, ncov)
+{
+  <span class="co"># function&#39;s body</span>
+}</code></pre></div>
+</section>
+<section id="change-names-to-convey-meaning" class="slide level1">
+<h1>Change names to convey meaning</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">simulate &lt;-<span class="st"> </span><span class="cf">function</span>(time_start, time_stop, is_stochastic,
+                     mosquito_species, mosquito_density,
+                     mosquito_to_human_prob, immunity_maternal,
+                               immunity_duration, net_type, net_coverage)
+{
+  <span class="co"># function&#39;s body</span>
+}</code></pre></div>
+</section>
+<section id="tip-1" class="slide level1">
+<h1>Tip # 1</h1>
+<p>&quot;Have you met my good friend 'bSty_1800'?&quot;</p>
+<p>​ Use descriptive variable names.</p>
+</section>
+<section id="other-problems" class="slide level1">
+<h1>Other problems?</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">simulate &lt;-<span class="st"> </span><span class="cf">function</span>(time_start, time_stop, is_stochastic,
+                     mosquito_species, mosquito_density,
+                     mosquito_to_human_prob, immunity_maternal,
+                               immunity_duration, net_type, net_coverage)
+{
+  <span class="co"># function&#39;s body</span>
+}</code></pre></div>
+<ul>
+<li>Parameters could be easily mixed up</li>
+<li>It's not clear what types things are expected to be</li>
+<li>If we add more parameters, things will get unwieldy!</li>
+</ul>
+</section>
+<section id="making-it-better" class="slide level1">
+<h1>Making it better?</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SimulationParameters &lt;-<span class="st"> </span><span class="kw">setClass</span>(
+  <span class="st">&quot;SimulationParameters&quot;</span>,
+  <span class="dt">slots=</span><span class="kw">list</span>(<span class="dt">time_start=</span><span class="st">&quot;numeric&quot;</span>,
+                 <span class="dt">time_stop=</span><span class="st">&quot;numeric&quot;</span>,
+                 <span class="dt">is_stochastic=</span><span class="st">&quot;logical&quot;</span>))</code></pre></div>
+</section>
+<section id="making-it-better-1" class="slide level1">
+<h1>Making it better?</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fails</span>
+simulation_parameters &lt;-<span class="st"> </span><span class="kw">SimulationParameters</span>(
+    <span class="dt">time_start=</span><span class="dv">1990</span>,
+    <span class="dt">time_stop=</span><span class="dv">2018</span>,
+    <span class="dt">is_stochastic=</span><span class="dv">2</span>
+)
+
+<span class="co"># works</span>
+simulation_parameters &lt;-<span class="st"> </span><span class="kw">SimulationParameters</span>(
+    <span class="dt">time_start=</span><span class="dv">1990</span>,
+    <span class="dt">time_stop=</span><span class="dv">2018</span>,
+    <span class="dt">is_stochastic=</span><span class="ot">FALSE</span>
+)</code></pre></div>
+</section>
+<section id="validity-checking" class="slide level1">
+<h1>Validity checking</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">check &lt;-<span class="cf">function</span>(object) {
+
+  <span class="cf">if</span>(<span class="op">!</span>object<span class="op">@</span>net_type <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;net 1&quot;</span>, <span class="st">&quot;net 2&quot;</span>))
+    <span class="kw">return</span>(<span class="st">&quot;A net must of type `net 1` or `net 2`.&quot;</span>)
+
+  coverage &lt;-<span class="st"> </span>object<span class="op">@</span>net_coverage
+  <span class="cf">if</span>(coverage <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">|</span><span class="st"> </span>coverage <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>)
+    <span class="kw">return</span>(<span class="st">&quot;Net coverage must not be outside [0, 1].&quot;</span>)
+}
+
+BednetParameters &lt;-<span class="st"> </span><span class="kw">setClass</span>(
+  <span class="st">&quot;BednetParameters&quot;</span>,
+  <span class="dt">slots=</span><span class="kw">list</span>(<span class="dt">net_type=</span><span class="st">&quot;character&quot;</span>,
+             <span class="dt">net_coverage=</span><span class="st">&quot;numeric&quot;</span>),
+             <span class="dt">validity =</span> check)<span class="er">)</span></code></pre></div>
+</section>
+<section id="validity-checking-1" class="slide level1">
+<h1>Validity checking</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># fails</span>
+bednet_parameters &lt;-<span class="st"> </span><span class="kw">BednetParameters</span>(
+            <span class="dt">net_type =</span> <span class="st">&quot;net 3&quot;</span>,
+        <span class="dt">net_coverage =</span> <span class="fl">0.3</span>)
+
+<span class="co"># fails</span>
+bednet_parameters &lt;-<span class="st"> </span><span class="kw">BednetParameters</span>(
+            <span class="dt">net_type =</span> <span class="st">&quot;net 2&quot;</span>,
+        <span class="dt">net_coverage =</span> <span class="dv">50</span>)</code></pre></div>
+</section>
+<section id="simulation-object" class="slide level1">
+<h1>Simulation object</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Simulation &lt;-<span class="st"> </span><span class="kw">setClass</span>(
+  <span class="st">&quot;Simulation&quot;</span>,
+  <span class="dt">slots=</span><span class="kw">list</span>(<span class="dt">simulation_parameters=</span><span class="st">&quot;SimulationParameters&quot;</span>,
+             <span class="dt">bednet_parameters=</span><span class="st">&quot;BednetParameters&quot;</span>,
+             <span class="dt">immunity_parameters=</span><span class="st">&quot;ImmunityParameters&quot;</span>,
+             <span class="dt">mosquito_parameters=</span><span class="st">&quot;MosquitoParameters&quot;</span>))
+
+<span class="co"># ...don&#39;t show how to do but could create a &quot;run&quot; method</span>
+simulation &lt;-<span class="st"> </span><span class="kw">Simulation</span>(<span class="dt">simulation_parameters=</span>....)
+result &lt;-<span class="st"> </span><span class="kw">run</span>(simulation)
+
+<span class="co"># what parameters did I use to run my simulation?</span>
+simulation<span class="op">@</span>simulation_parameters</code></pre></div>
+</section>
+<section id="tip-2" class="slide level1">
+<h1>Tip # 2</h1>
+<p>&quot;Oh you're going the same way as me? Why not ride-share?&quot;</p>
+<p>​ Repackage your long parameter lists into sets of objects that travel together.</p>
+<p>&quot;Can you prove you're of correct type? If not, you're not getting into this function.&quot;</p>
+<p>​ Check for valid parameter values.</p>
+</section>
+<section id="conclusions-from-example" class="slide level1">
+<h1>Conclusions from example</h1>
+<ul>
+<li>This was an example of a &quot;long parameter list&quot; code smell</li>
+<li>It also was an example of using &quot;non-descriptive variable names&quot;</li>
+</ul>
+</section>
+<section id="long-method-smell" class="slide level1">
+<h1>Long method smell</h1>
+<ul>
+<li>A long method is simply one with many lines of code. &quot;Generally, any method longer than ten lines should make you start asking questions&quot;, <strong>Refactoring Guru</strong>.</li>
+<li>Why do they occur?</li>
+<li>It's easier to write code than it is to read it</li>
+<li>When new functionality is required, it can feel easier to add to existing methods rather than create new ones</li>
+</ul>
+</section>
+<section id="what-problems-do-they-cause" class="slide level1">
+<h1>What problems do they cause?</h1>
+<p>The longer a function is</p>
+<ul>
+<li>The harder it is to understand it</li>
+<li>The harder it is to maintain</li>
+<li>The harder it is to test</li>
+<li>The more likely it will contain duplicate code</li>
+</ul>
+</section>
+<section id="where-to-find-out-more" class="slide level1">
+<h1>Where to find out more</h1>
+<ul>
+<li><em>Code Smells and Feels</em>, Jenny Byran, useR 2018</li>
+<li>Martin Fowler, Kent Beck <em>Refactoring, 2nd edition</em> (Esp chapter 3)</li>
+<li>&quot;Better Codehub&quot; badges on Github: semi-automated checking of software</li>
+</ul>
+</section>
+<section id="how-to-programme-defensively-for-research" class="slide level1">
+<h1>How to programme defensively for research</h1>
 </section>
 <section id="defensive-programming" class="slide level1">
 <h1>Defensive programming</h1>
-<p>``Assumes mistakes will happen and tries to find them as soon as they arise.''</p>
+<p>&quot;Assumes mistakes will happen and tries to find them as soon as they arise.''</p>
 </section>
 <section id="data-science-analyses" class="slide level1">
 <h1>Data science analyses</h1>
@@ -144,11 +349,12 @@ y_1_sum <span class="op">=</span> sum_y_values_conditional_x(<span class="dv">1<
 <li>Biggish codebase, including functions that are reused multiple times</li>
 <li>Unclear which analysis path will form eventual output</li>
 </ul>
+<p>Question: how to programme defensively here?</p>
 </section>
 <section id="my-maturing-analyses-defence" class="slide level1">
 <h1>My maturing analyses defence</h1>
 <ul>
-<li>assertion-driven checking of raw data processing</li>
+<li>Assertion-driven checking of raw data processing</li>
 <li>Move functions out of notebooks</li>
 <li>Document functions</li>
 <li>Create unit tests for useful (lower-level) functions</li>
@@ -158,13 +364,103 @@ y_1_sum <span class="op">=</span> sum_y_values_conditional_x(<span class="dv">1<
 <section id="analyses-underlying-publications" class="slide level1">
 <h1>Analyses underlying publications</h1>
 <ul>
-<li>create a separate package housing methods used by the publication</li>
-<li>(maybe) continuous integration testing</li>
-<li>another (structured) repo containing scripts for paper</li>
+<li>Create a separate package housing methods used by the publication</li>
+<li>(Maybe) continuous integration testing</li>
+<li>Another (structured) repo containing scripts for paper</li>
 </ul>
 </section>
-<section id="structure-a-project-for-reproducibility" class="slide level1">
-<h1>Structure a project for reproducibility</h1>
+<section id="structuring-a-project-for-reproducibile-data-analyses" class="slide level1">
+<h1>Structuring a project for reproducibile data analyses</h1>
+</section>
+<section id="question-how-should-a-project-be-structured-for-reproducible-analyses" class="slide level1">
+<h1>Question: how should a project be structured for reproducible analyses?</h1>
+</section>
+<section id="my-answer" class="slide level1">
+<h1>My answer</h1>
+<p>Communication!</p>
+</section>
+<section id="how-to-communicate-an-analysis" class="slide level1">
+<h1>How to communicate an analysis</h1>
+<ul>
+<li>Most published analyses are complex, involving many steps</li>
+<li>Only so much can be communicated in papers (or supplementary materials)</li>
+<li>Producing open-source repositories is key</li>
+</ul>
+</section>
+<section id="repositories-for-data-analyses" class="slide level1">
+<h1>Repositories for data analyses</h1>
+<p>Difficulties for users:</p>
+<ul>
+<li>Understanding how to navigate your respository</li>
+<li>Understanding whether parts of your repository are axiomatic or produced by your analysis</li>
+<li>Understanding how outputs are produced</li>
+</ul>
+</section>
+<section id="structuring-the-repository" class="slide level1">
+<h1>Structuring the repository</h1>
+<p>There are are number of <em>opinionated</em> data science project templates.</p>
+<p>The jury's still out on whether one will rule them all or whether one needs different structures for different projects.</p>
+<p>However there are certain things that are almost always required.</p>
+</section>
+<section id="structuring-the-repository-1" class="slide level1">
+<h1>Structuring the repository</h1>
+<ul>
+<li>ReadMe</li>
+<li>data</li>
+<li>raw</li>
+<li>processed</li>
+<li>src</li>
+<li>requirements</li>
+<li>notebooks or vignettes</li>
+</ul>
+</section>
+<section id="aim-for-a-dag" class="slide level1">
+<h1>Aim for a DAG</h1>
+<figure>
+<img src="make-research-dag.png" alt="alt text" /><figcaption>alt text</figcaption>
+</figure>
+<p>From &quot;The Turing Way&quot;.</p>
+</section>
+<section id="dags-through-makefiles" class="slide level1">
+<h1>DAGs through Makefiles</h1>
+<p>Makefiles:</p>
+<ul>
+<li>Build targets using recipes</li>
+<li>Targets have prerequisites</li>
+<li>Make determines what to build based on dependency tree of targets</li>
+<li>Uses modification time of prerequisites to update targets only when needed</li>
+</ul>
+</section>
+<section id="example-makefile" class="slide level1">
+<h1>Example Makefile</h1>
+<div class="sourceCode"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span class="dv">output/figure_1.png:</span><span class="dt"> data/input_file_1.csv scripts/generate_histogram.py</span>
+    python scripts/generate_histogram.py -i data/input_file_1.csv -o output/figure_1.png
+
+<span class="dv">output/figure_2.png:</span><span class="dt"> data/input_file_2.csv scripts/generate_histogram.py</span>
+    python scripts/generate_histogram.py -i data/input_file_2.csv -o output/figure_2.png
+
+<span class="dv">output/report.pdf:</span><span class="dt"> report/report.tex output/figure_1.png output/figure_2.png</span>
+    cd report/ &amp;&amp; pdflatex report.tex &amp;&amp; mv report.pdf ../output/report.pdf</code></pre></div>
+</section>
+<section id="defensive-coding-for-data-science" class="slide level1">
+<h1>Defensive coding for data science</h1>
+<ul>
+<li>Jes Ford's YouTube lecture, &quot;Getting started testing in data science - PyCon 2019&quot;</li>
+<li>Hanna Torrence's YouTube lecture, &quot;Unit testing for data scientists&quot;</li>
+</ul>
+</section>
+<section id="project-templates" class="slide level1">
+<h1>Project templates</h1>
+<ul>
+<li>Cookiecutter for Python: https://drivendata.github.io/cookiecutter-data-science/</li>
+<li>Project Template for R: http://projecttemplate.net/index.html</li>
+</ul>
+</section>
+<section id="makefiles" class="slide level1">
+<h1>Makefiles</h1>
+<ul>
+<li>The Turing Way's &quot;Reproducibility with Make&quot;: https://the-turing-way.netlify.app/reproducible-research/make.html</li>
+</ul>
 </section>
     </div>
   </div>
