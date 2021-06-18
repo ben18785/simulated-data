@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  18 JUN 2021 17:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  19 JUN 2021 00:53
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1982,9 +1982,11 @@ Overfull \vbox (7.58955pt too high) detected at line 352
 ]
 [27
 
+] [28
+
 ]
-Package atenddvi Info: Last page = 28.
- [28
+Package atenddvi Info: Last page = 29.
+ [29
 
 ]
 \tf@nav=\write8
@@ -1996,11 +1998,11 @@ Package atenddvi Info: Last page = 28.
 \tf@snm=\write10
 \openout10 = `benefits_of_data_simulation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 426.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 437.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 437.
  (./benefits_of_data_simulation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 437.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 437.
 Package rerunfilecheck Info: File `benefits_of_data_simulation.out' has not cha
 nged.
 (rerunfilecheck)             Checksum: 7A301D84772875C225FD07BBE150B4A1;225.
@@ -2013,13 +2015,13 @@ Package logreq Info: Writing requests to 'benefits_of_data_simulation.run.xml'.
 
 \openout1 = `benefits_of_data_simulation.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 437.
  ) 
 Here is how much of TeX's memory you used:
- 35631 strings out of 493014
- 690190 string characters out of 6133352
- 1097410 words of memory out of 5000000
- 38439 multiletter control sequences out of 15000+600000
+ 35635 strings out of 493014
+ 690225 string characters out of 6133352
+ 1097409 words of memory out of 5000000
+ 38441 multiletter control sequences out of 15000+600000
  20364 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,16n,96p,10431b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2042,10 +2044,10 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on benefits_of_data_simulation.pdf (28 pages, 961438 bytes).
+Output written on benefits_of_data_simulation.pdf (29 pages, 962220 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 60 named destinations out of 1000 (max. 500000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
