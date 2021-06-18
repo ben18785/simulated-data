@@ -81,7 +81,7 @@ model <- function(start, stop, stoc, spec, dens,
 simulate <- function(time_start, time_stop, is_stochastic,
                      mosquito_species, mosquito_density,
                      mosquito_to_human_prob, immunity_maternal,
-					           immunity_duration, net_type, net_coverage)
+                     immunity_duration, net_type, net_coverage)
 {
   # function's body
 }
@@ -99,7 +99,7 @@ simulate <- function(time_start, time_stop, is_stochastic,
 simulate <- function(time_start, time_stop, is_stochastic,
                      mosquito_species, mosquito_density,
                      mosquito_to_human_prob, immunity_maternal,
-					           immunity_duration, net_type, net_coverage)
+                     immunity_duration, net_type, net_coverage)
 {
   # function's body
 }
@@ -115,8 +115,8 @@ simulate <- function(time_start, time_stop, is_stochastic,
 SimulationParameters <- setClass(
   "SimulationParameters",
   slots=list(time_start="numeric",
-       			 time_stop="numeric",
-       			 is_stochastic="logical"))
+             time_stop="numeric",
+             is_stochastic="logical"))
 ```
 
 # Making it better?
@@ -154,7 +154,7 @@ BednetParameters <- setClass(
   "BednetParameters",
   slots=list(net_type="character",
              net_coverage="numeric"),
-             validity = check))
+  validity = check))
 ```
 
 # Validity checking
@@ -162,13 +162,13 @@ BednetParameters <- setClass(
 ```R
 # fails
 bednet_parameters <- BednetParameters(
-  			net_type = "net 3",
-        net_coverage = 0.3)
+  net_type = "net 3",
+  net_coverage = 0.3)
 
 # fails
 bednet_parameters <- BednetParameters(
-  			net_type = "net 2",
-        net_coverage = 50)
+  net_type = "net 2",
+  net_coverage = 50)
 ```
 
 # Simulation object
@@ -206,10 +206,14 @@ simulation@simulation_parameters
 
 # Long method smell
 
-* A long method is simply one with many lines of code. "Generally, any method longer than ten lines should make you start asking questions", **Refactoring Guru**.
-* Why do they occur?
-  * It's easier to write code than it is to read it
-  * When new functionality is required, it can feel easier to add to existing methods rather than create new ones
+A long method is simply one with many lines of code. "Generally, any method longer than ten lines should make you start asking questions", **Refactoring Guru**.
+
+Why do they occur?
+
+
+
+* It's easier to write code than it is to read it
+* When new functionality is required, it can feel easier to add to existing methods rather than create new ones
 
 # What problems do they cause?
 
@@ -286,9 +290,9 @@ Characteristics:
 * Biggish codebase, including functions that are reused multiple times
 * Unclear which analysis path will form eventual output
 
-Question: how to programme defensively here?
+Question: how to code defensively here?
 
-#My maturing analyses defence
+# My maturing analyses defence
 
 * Assertion-driven checking of raw data processing
 * Move functions out of notebooks
@@ -381,3 +385,6 @@ output/report.pdf: report/report.tex output/figure_1.png output/figure_2.png
 # Makefiles
 
 * The Turing Way's "Reproducibility with Make": https://the-turing-way.netlify.app/reproducible-research/make.html
+
+# Questions?
+
