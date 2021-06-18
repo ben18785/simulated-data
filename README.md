@@ -1,5 +1,5 @@
 # simulated-data
-In this course, we will use simulation based analyses to investigate a range of statistical issues.
+In this course, we will use simulation based analyses to investigate a range of statistical issues. The lecture material for the course is [here](https://github.com/ben18785/simulated-data/blob/main/documents/benefits_of_data_simulation.pdf).
 
 In the problem sets, we cover the following:
 
