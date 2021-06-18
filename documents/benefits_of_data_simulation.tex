@@ -67,8 +67,7 @@
 	\begin{itemize}
 		\item How to create useful methods (using simulation)
 		\item Two key problems with statistical significance testing (explored via simulation in problem sets)
-		\item Simulated data for inference
-		\item Simulated data for experimental design
+		\item Simulated data for inference and experimental design
 	\end{itemize}
 	
 \end{frame}
@@ -157,9 +156,9 @@
 	\frametitle{Designing methods}
 	
 	\begin{itemize}
-		\item Many of you will create methods for use by others;
-		\item Important to ensure this is done responsibly so it can be replicated: good software testing and comprehensively documented;
-		\item As important is to ensure that the methods are \textbf{useful}.
+		\item Many of you will create methods for use by others
+		\item Important to ensure this is done responsibly so it can be replicated: good software testing and comprehensively documented
+		\item As important is to ensure that the methods are \textbf{useful}
 	\end{itemize}
 	
 \end{frame}
@@ -174,9 +173,9 @@
 	A statistical test is useful if:
 	
 	\begin{enumerate}
-		\item Its $\alpha$ behaves as it should under the distribution(s) defined by the null hypothesis;
-		\item It is powerful across a range of likely to be encountered $H_1$s;
-		\item You have determined and communicated the $H_1$s for which it doesn't work.
+		\item Its $\alpha$ behaves as it should under the distribution(s) defined by the null hypothesis
+		\item It is powerful across a range of likely to be encountered $H_1$s
+		\item You have determined and communicated the $H_1$s for which it doesn't work
 	\end{enumerate}
 	
 	$\implies$ can use simulation to handle all the above!
@@ -238,8 +237,8 @@
 	Suppose two treatments aimed at increasing personal income\footnote{From Gelman, Hill, Vehtari, 2021, \textit{Regression and Other Stories}.}:
 	
 	\begin{itemize}
-		\item Treatment 1: estimated to increase annual earnings by \$10 with a standard error of \$2.
-		\item Treatment 2: estimated to increase annual earnings by \$10,000 with a standard error of \$10,000.
+		\item Treatment 1: estimated to increase annual earnings by \$10 with a standard error of \$2
+		\item Treatment 2: estimated to increase annual earnings by \$10,000 with a standard error of \$10,000
 	\end{itemize}
 	
 	Only treatment 2 has the potential to impact the real world but is not statistically significant.
@@ -255,8 +254,8 @@
 	For an estimate, $\hat{\theta}$, to be statistically significant, it must pass some threshold:
 	
 	\begin{itemize}
-		\item Threshold higher for lower power tests;
-		\item Threshold increases with the noisiness of the data.
+		\item Threshold higher for lower power tests
+		\item Threshold increases with the noisiness of the data
 	\end{itemize}
 	
 	Therefore the weaker the test and the noisier the data,
@@ -366,6 +365,61 @@
 		\item Use pre-existing information to estimate parameters.
 	\end{itemize}
 	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Experimental design: the other side of the coin to inference}
+	
+	\begin{itemize}
+		\item Experiments typically aim to estimate certain quantities
+		\item If we have choice about how to measure a system, we can affect the sampling distribution of our estimators
+		\item Simulated data can be used to decide how best to measure
+	\end{itemize}
+	
+	\textbf{Note:} for useful experimental design, the simulated data should be as near to what you expect as possible!
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parameter sensitivities: another tool for experimental design}
+	
+	Suppose we have a model with solution:
+	
+	\begin{equation}
+	y(t) = f(t, \theta),
+	\end{equation}
+	
+	where $t$ is time and $\theta$ is a parameter we wish to estimate. Suppose this then gets used to calculate a log-likelihood for inference:
+	
+	\begin{equation}
+	\mathcal{L} = \sum_{t=t_1}^{t_T} \log p(y(t)|f(t, \theta)).
+	\end{equation}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parameter sensitivities: another tool for experimental design}
+	
+	The precision of our estimates depends on how sensitive the log-likelihood is to choice of $\theta$. That is, on the magnitude of:
+	
+	\begin{equation}
+	\frac{d\mathcal{L}}{d\theta}.
+	\end{equation}
+	
+	This, in turn, depends on:
+	
+	\begin{equation}
+	\frac{d f(t)}{d \theta}.
+	\end{equation}
+	
+	So assessing the sensitivities of our model at various points in time to the parameters can also be used to guide experimental design.
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{That's it!}
+	
+	\Large Questions?
 \end{frame}
 
 

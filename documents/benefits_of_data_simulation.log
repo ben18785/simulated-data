@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  15 JUN 2021 09:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.6.7)  18 JUN 2021 17:26
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1890,7 +1890,7 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] [8
 
 ]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 154.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 153.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
@@ -1921,10 +1921,10 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 File: ./figures/lotka-volterra.pdf Graphic file (type pdf)
 
 <use ./figures/lotka-volterra.pdf>
-Package pdftex.def Info: ./figures/lotka-volterra.pdf used on input line 302.
+Package pdftex.def Info: ./figures/lotka-volterra.pdf used on input line 301.
 (pdftex.def)             Requested size: 290.74263pt x 149.4714pt.
 
-Overfull \vbox (8.1998pt too high) detected at line 302
+Overfull \vbox (8.1998pt too high) detected at line 301
  []
 
 [19
@@ -1937,10 +1937,10 @@ File: ./figures/lotka-volterra-infer-1.pdf Graphic file (type pdf)
 
 <use ./figures/lotka-volterra-infer-1.pdf>
 Package pdftex.def Info: ./figures/lotka-volterra-infer-1.pdf used on input lin
-e 335.
+e 334.
 (pdftex.def)             Requested size: 290.74263pt x 196.25323pt.
 
-Overfull \vbox (17.78162pt too high) detected at line 335
+Overfull \vbox (17.78162pt too high) detected at line 334
  []
 
 [21
@@ -1951,10 +1951,10 @@ File: ./figures/lotka-volterra-inference-other.pdf Graphic file (type pdf)
 
 <use ./figures/lotka-volterra-inference-other.pdf>
 Package pdftex.def Info: ./figures/lotka-volterra-inference-other.pdf used on i
-nput line 344.
+nput line 343.
 (pdftex.def)             Requested size: 290.74263pt x 195.49771pt.
 
-Overfull \vbox (0.6886pt too high) detected at line 344
+Overfull \vbox (0.6886pt too high) detected at line 343
  []
 
 [22
@@ -1965,17 +1965,26 @@ File: ./figures/lotka-volterra-inference-big.png Graphic file (type png)
 
 <use ./figures/lotka-volterra-inference-big.png>
 Package pdftex.def Info: ./figures/lotka-volterra-inference-big.png used on inp
-ut line 353.
+ut line 352.
 (pdftex.def)             Requested size: 203.51895pt x 202.39867pt.
 
-Overfull \vbox (7.58955pt too high) detected at line 353
+Overfull \vbox (7.58955pt too high) detected at line 352
  []
 
 [23
 
- <./figures/lotka-volterra-inference-big.png (PNG copy)>]
-Package atenddvi Info: Last page = 24.
- [24
+ <./figures/lotka-volterra-inference-big.png (PNG copy)>] [24
+
+] [25
+
+] [26
+
+]
+[27
+
+]
+Package atenddvi Info: Last page = 28.
+ [28
 
 ]
 \tf@nav=\write8
@@ -1987,12 +1996,11 @@ Package atenddvi Info: Last page = 24.
 \tf@snm=\write10
 \openout10 = `benefits_of_data_simulation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 372.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 372.
-
-(./benefits_of_data_simulation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 372.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 372.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 426.
+ (./benefits_of_data_simulation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
 Package rerunfilecheck Info: File `benefits_of_data_simulation.out' has not cha
 nged.
 (rerunfilecheck)             Checksum: 7A301D84772875C225FD07BBE150B4A1;225.
@@ -2005,13 +2013,13 @@ Package logreq Info: Writing requests to 'benefits_of_data_simulation.run.xml'.
 
 \openout1 = `benefits_of_data_simulation.run.xml'.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 372.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 426.
  ) 
 Here is how much of TeX's memory you used:
- 35615 strings out of 493014
- 690050 string characters out of 6133352
+ 35631 strings out of 493014
+ 690190 string characters out of 6133352
  1097410 words of memory out of 5000000
- 38431 multiletter control sequences out of 15000+600000
+ 38439 multiletter control sequences out of 15000+600000
  20364 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,16n,96p,10431b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2034,10 +2042,10 @@ b></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 
-Output written on benefits_of_data_simulation.pdf (24 pages, 956532 bytes).
+Output written on benefits_of_data_simulation.pdf (28 pages, 961438 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 236 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
+ 334 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
